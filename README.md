@@ -1,8 +1,8 @@
-# Habitodo
+# Habit Tracker
 
 <div align="center">
 
-<img src="assets/habitodo.svg" alt="Habitodo Logo" width="128" height="128" />
+<img src="assets/habit-tracker.svg" alt="Habit Tracker Logo" width="128" height="128" />
 
 ### Fast, Keyboard-Driven, Native Dark-Mode Habit & To-Do Tracker
 
@@ -16,7 +16,7 @@
 
 ---
 
-**Habitodo** is a distraction-free, 100% offline desktop productivity application built from the ground up in Rust. It pairs non-negotiable daily recurring habits with actionable to-dos, complete with an Elm-inspired unidirectional state engine, a dark-mode UI, hardware-accelerated canvas analytics, and a Vim-inspired keyboard workflow.
+**Habit Tracker** is a distraction-free, 100% offline desktop productivity application built from the ground up in Rust. It pairs non-negotiable daily recurring habits with actionable to-dos, complete with an Elm-inspired unidirectional state engine, a dark-mode UI, hardware-accelerated canvas analytics, and a Vim-inspired keyboard workflow.
 
 ---
 
@@ -91,12 +91,12 @@ flowchart TD
 
 ## Keyboard Shortcuts
 
-Habitodo is built to be operated entirely without touching a mouse. Press `?` anywhere to bring up the in-app cheat sheet.
+Habit Tracker is built to be operated entirely without touching a mouse. Press `?` anywhere to bring up the in-app cheat sheet.
 
 ### Global
 | Key | Action |
 | :--- | :--- |
-| `q` | Quit Habitodo |
+| `q` | Quit Habit Tracker |
 | `s`, `Tab` | Toggle metrics sidebar (auto-collapses on small windows) |
 | `?` | Toggle shortcuts help modal |
 
@@ -142,19 +142,19 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ### Automatic Installation (Desktop Menu Integration)
 Clone the repository and run the automated installer:
 ```bash
-git clone https://github.com/Pierorivera1/habitodo.git
-cd habitodo
+git clone https://github.com/Pierorivera1/Habit_Tracker.git
+cd Habit_Tracker
 ./install.sh
 ```
 
 **What the installer does:**
 1. Compiles the optimized release binary (`cargo build --release`).
-2. Installs the binary to `~/.local/bin/habitodo`.
-3. Installs the high-resolution vector icon to `~/.local/share/icons/hicolor/scalable/apps/habitodo.svg`.
-4. Registers the XDG desktop entry at `~/.local/share/applications/habitodo.desktop`.
+2. Installs the binary to `~/.local/bin/habit-tracker`.
+3. Installs the high-resolution vector icon to `~/.local/share/icons/hicolor/scalable/apps/habit-tracker.svg`.
+4. Registers the XDG desktop entry at `~/.local/share/applications/habit-tracker.desktop`.
 5. Updates your desktop application and icon database (`update-desktop-database`).
 
-You can immediately launch **Habitodo** from your system application menu (GNOME, KDE, Rofi, Wofi, dmenu, etc.) or by typing `habitodo` in any terminal!
+You can immediately launch **Habit Tracker** from your system application menu (GNOME, KDE, Rofi, Wofi, dmenu, etc.) or by typing `habit-tracker` in any terminal!
 
 > [!NOTE]
 > Make sure `~/.local/bin` is in your `PATH`. If it isn't already, add this to your `~/.bashrc` or `~/.zshrc`:
@@ -174,13 +174,12 @@ cargo build --release
 
 # 2. Copy binary to your local user bin directory
 mkdir -p ~/.local/bin
-cp target/release/habitodo ~/.local/bin/
-chmod +x ~/.local/bin/habitodo
+install -m 755 target/release/habitodo ~/.local/bin/habit-tracker
 
 # 3. Install desktop entry and application icon
 mkdir -p ~/.local/share/applications ~/.local/share/icons/hicolor/scalable/apps
-cp assets/habitodo.desktop ~/.local/share/applications/
-cp assets/habitodo.svg ~/.local/share/icons/hicolor/scalable/apps/
+cp assets/habit-tracker.desktop ~/.local/share/applications/
+cp assets/habit-tracker.svg ~/.local/share/icons/hicolor/scalable/apps/
 
 # 4. Refresh desktop and icon caches
 update-desktop-database ~/.local/share/applications/
@@ -191,7 +190,7 @@ gtk-update-icon-cache -f -t ~/.local/share/icons/hicolor/ 2>/dev/null || true
 
 ### Uninstallation
 
-To cleanly remove Habitodo from your system:
+To cleanly remove Habit Tracker from your system:
 ```bash
 ./uninstall.sh
 ```
@@ -201,17 +200,17 @@ To cleanly remove Habitodo from your system:
 
 ## Command-Line Interface (CLI)
 
-Habitodo provides built-in CLI flags for quick inspection and headless self-diagnostics:
+Habit Tracker provides built-in CLI flags for quick inspection and headless self-diagnostics:
 
 ```bash
 # Show usage and keybinding cheat sheet
-habitodo --help
+habit-tracker --help
 
 # Show version information
-habitodo --version
+habit-tracker --version
 
 # Run headless self-verification diagnostics against SQLite
-habitodo --verify
+habit-tracker --verify
 ```
 
 ---

@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -e
 
-# Habitodo Desktop Installer
+# Habit Tracker Desktop Installer
 # Installs binary, desktop entry, and icon for current user
 
-echo "==> Building Habitodo in release mode..."
+echo "==> Building Habit Tracker in release mode..."
 cargo build --release
 
 BIN_DIR="${HOME}/.local/bin"
@@ -16,15 +16,18 @@ mkdir -p "${BIN_DIR}"
 mkdir -p "${APP_DIR}"
 mkdir -p "${ICON_DIR}"
 
-echo "==> Installing binary to ${BIN_DIR}/habitodo..."
-rm -f "${BIN_DIR}/habitodo"
-install -m 755 target/release/habitodo "${BIN_DIR}/habitodo"
+echo "==> Installing binary to ${BIN_DIR}/habit-tracker..."
+rm -f "${BIN_DIR}/habit-tracker"
+install -m 755 target/release/habitodo "${BIN_DIR}/habit-tracker"
 
-echo "==> Installing application icon to ${ICON_DIR}/habitodo.svg..."
-cp assets/habitodo.svg "${ICON_DIR}/habitodo.svg"
+# Clean up legacy habitodo desktop files if present
+rm -f "${APP_DIR}/habitodo.desktop"
 
-echo "==> Installing desktop entry to ${APP_DIR}/habitodo.desktop..."
-cp assets/habitodo.desktop "${APP_DIR}/habitodo.desktop"
+echo "==> Installing application icon to ${ICON_DIR}/habit-tracker.svg..."
+cp assets/habit-tracker.svg "${ICON_DIR}/habit-tracker.svg"
+
+echo "==> Installing desktop entry to ${APP_DIR}/habit-tracker.desktop..."
+cp assets/habit-tracker.desktop "${APP_DIR}/habit-tracker.desktop"
 
 # Ensure ~/.local/bin is in PATH notice
 if [[ ":$PATH:" != *":${HOME}/.local/bin:"* ]]; then
@@ -45,5 +48,5 @@ if command -v gtk-update-icon-cache >/dev/null 2>&1; then
   gtk-update-icon-cache -f -t "${HOME}/.local/share/icons/hicolor" 2>/dev/null || true
 fi
 
-echo "==> Successfully installed Habitodo!"
-echo "You can now launch Habitodo from your system application menu or by running 'habitodo' in your terminal."
+echo "==> Successfully installed Habit Tracker!"
+echo "You can now launch Habit Tracker from your system application menu or by running 'habit-tracker' in your terminal."

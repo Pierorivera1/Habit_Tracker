@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Habit Tracker
+GenericName=Habit & Todo Tracker
+Comment=Native dark-mode keyboard-first habit and todo tracker in Rust
+Exec=habit-tracker
+Icon=habit-tracker
+Terminal=false
+Categories=Office;ProjectManagement;Utility;
+Keywords=habit;tracker;todo;productivity;task;streak;
+StartupWMClass=Habit Tracker
