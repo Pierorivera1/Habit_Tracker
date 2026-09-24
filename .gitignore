@@ -1,0 +1,19 @@
+# Rust build artifacts
+/target/
+**/*.rs.bk
+
+# SQLite local database files
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# Agent workspace logs & artifacts
+.agents/
+
+# OS-specific temporary files
+.DS_Store
+Thumbs.db
+*.swp
+*~

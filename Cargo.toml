@@ -1,0 +1,18 @@
+[package]
+name = "habitodo"
+version = "0.1.0"
+edition = "2021"
+authors = ["Habitodo Contributors"]
+description = "Native dark-mode habit and to-do tracker in Rust"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+iced = { version = "0.13.1", features = ["canvas"] }
+rusqlite = { version = "0.32", features = ["bundled", "chrono"] }
+chrono = { version = "0.4", features = ["serde"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+dirs = "5.0"
+
+[dev-dependencies]
+tempfile = "3.17"
