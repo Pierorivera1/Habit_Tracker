@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="assets/habit-tracker.svg" alt="Habit Tracker Logo" width="128" height="128" />
+<img src="assets/habit-tracker.png" alt="Habit Tracker Logo" width="128" height="128" />
 
 ### Fast, Keyboard-Driven, Native Dark-Mode Habit & To-Do Tracker
 
@@ -150,7 +150,7 @@ cd Habit_Tracker
 **What the installer does:**
 1. Compiles the optimized release binary (`cargo build --release`).
 2. Installs the binary to `~/.local/bin/habit-tracker`.
-3. Installs the high-resolution vector icon to `~/.local/share/icons/hicolor/scalable/apps/habit-tracker.svg`.
+3. Installs the high-resolution application icon to `~/.local/share/icons/hicolor/512x512/apps/habit-tracker.png`.
 4. Registers the XDG desktop entry at `~/.local/share/applications/habit-tracker.desktop`.
 5. Updates your desktop application and icon database (`update-desktop-database`).
 
@@ -177,9 +177,9 @@ mkdir -p ~/.local/bin
 install -m 755 target/release/habitodo ~/.local/bin/habit-tracker
 
 # 3. Install desktop entry and application icon
-mkdir -p ~/.local/share/applications ~/.local/share/icons/hicolor/scalable/apps
+mkdir -p ~/.local/share/applications ~/.local/share/icons/hicolor/512x512/apps
 cp assets/habit-tracker.desktop ~/.local/share/applications/
-cp assets/habit-tracker.svg ~/.local/share/icons/hicolor/scalable/apps/
+cp assets/habit-tracker.png ~/.local/share/icons/hicolor/512x512/apps/
 
 # 4. Refresh desktop and icon caches
 update-desktop-database ~/.local/share/applications/

@@ -23,8 +23,24 @@ install -m 755 target/release/habitodo "${BIN_DIR}/habit-tracker"
 # Clean up legacy habitodo desktop files if present
 rm -f "${APP_DIR}/habitodo.desktop"
 
-echo "==> Installing application icon to ${ICON_DIR}/habit-tracker.svg..."
-cp assets/habit-tracker.svg "${ICON_DIR}/habit-tracker.svg"
+echo "==> Installing application icon..."
+mkdir -p "${HOME}/.local/share/icons/hicolor/512x512/apps"
+mkdir -p "${HOME}/.local/share/icons/hicolor/256x256/apps"
+mkdir -p "${HOME}/.local/share/icons/hicolor/128x128/apps"
+mkdir -p "${HOME}/.local/share/icons/hicolor/64x64/apps"
+mkdir -p "${HOME}/.local/share/icons/hicolor/48x48/apps"
+mkdir -p "${HOME}/.local/share/icons/hicolor/32x32/apps"
+cp assets/habit-tracker.png "${HOME}/.local/share/icons/hicolor/512x512/apps/habit-tracker.png"
+cp assets/habit-tracker.png "${HOME}/.local/share/icons/habit-tracker.png"
+cp assets/habit-tracker.png "${ICON_DIR}/habit-tracker.png"
+if command -v magick >/dev/null 2>&1; then
+  magick assets/habit-tracker.png -resize 256x256 "${HOME}/.local/share/icons/hicolor/256x256/apps/habit-tracker.png"
+  magick assets/habit-tracker.png -resize 128x128 "${HOME}/.local/share/icons/hicolor/128x128/apps/habit-tracker.png"
+  magick assets/habit-tracker.png -resize 64x64 "${HOME}/.local/share/icons/hicolor/64x64/apps/habit-tracker.png"
+  magick assets/habit-tracker.png -resize 48x48 "${HOME}/.local/share/icons/hicolor/48x48/apps/habit-tracker.png"
+  magick assets/habit-tracker.png -resize 32x32 "${HOME}/.local/share/icons/hicolor/32x32/apps/habit-tracker.png"
+fi
+rm -f "${ICON_DIR}/habit-tracker.svg" "${ICON_DIR}/habitodo.svg"
 
 echo "==> Installing desktop entry to ${APP_DIR}/habit-tracker.desktop..."
 cp assets/habit-tracker.desktop "${APP_DIR}/habit-tracker.desktop"
